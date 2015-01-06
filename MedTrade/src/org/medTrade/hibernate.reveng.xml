@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+  <table-filter match-catalog="MedTrade" match-name="Article"/>
+  <table-filter match-catalog="MedTrade" match-name="CaracteristiquesProduits"/>
+  <table-filter match-catalog="MedTrade" match-name="Categorie"/>
+  <table-filter match-catalog="MedTrade" match-name="Client"/>
+  <table-filter match-catalog="MedTrade" match-name="CommandeClient"/>
+  <table-filter match-catalog="MedTrade" match-name="CommandeFournisseur"/>
+  <table-filter match-catalog="MedTrade" match-name="CommandeFournisseur_has_Article"/>
+  <table-filter match-catalog="MedTrade" match-name="Conditionnement"/>
+  <table-filter match-catalog="MedTrade" match-name="FactureClient"/>
+  <table-filter match-catalog="MedTrade" match-name="FactureFournisseur"/>
+  <table-filter match-catalog="MedTrade" match-name="FactureFournisseur_has_Article"/>
+  <table-filter match-catalog="MedTrade" match-name="Images"/>
+  <table-filter match-catalog="MedTrade" match-name="Marchant"/>
+  <table-filter match-catalog="MedTrade" match-name="Marque"/>
+  <table-filter match-catalog="MedTrade" match-name="Panier"/>
+  <table-filter match-catalog="MedTrade" match-name="Panier_has_Article"/>
+  <table-filter match-catalog="MedTrade" match-name="User"/>
+  <table-filter match-catalog="MedTrade" match-name="role"/>
+</hibernate-reverse-engineering>

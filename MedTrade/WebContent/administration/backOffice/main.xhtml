@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:sec="http://www.springframework.org/security/tags">
+
+<h:head>
+	<title>MedTrade Platform-----Administration WebUI</title>
+</h:head>
+<h:body>
+	<h:form>
+		<p:layout fullPage="true">
+			<p:layoutUnit position="north" size="100">
+				<p:menubar model="#{menuMBean.model}" />
+			</p:layoutUnit>
+			<p:layoutUnit position="west" size="250">
+				<sec:authorize ifAnyGranted="ADMIN">
+					<p:menu model="#{menuMBean.modelAdmin}" toggleable="true" />
+				</sec:authorize>
+			</p:layoutUnit>
+			<p:layoutUnit id="mainLayout" position="center">
+				<p:growl id="msgs" showDetail="true" />
+				<p:messages id="messages" showDetail="true" autoUpdate="true" />
+				
+			</p:layoutUnit>
+		</p:layout>
+	</h:form>
+</h:body>
+</html>

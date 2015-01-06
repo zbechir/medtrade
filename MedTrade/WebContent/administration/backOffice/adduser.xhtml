@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:sec="http://www.springframework.org/security/tags">
+
+<h:head>
+	<title>MedTrade Platform-----Administration WebUI</title>
+</h:head>
+<h:body>
+	<h:form>
+		<p:layout fullPage="true">
+			<p:layoutUnit position="north" size="100">
+				<p:menubar model="#{menuMBean.model}" />
+			</p:layoutUnit>
+			<p:layoutUnit position="west" size="250">
+				<sec:authorize ifAnyGranted="ADMIN">
+					<p:menu model="#{menuMBean.modelAdmin}" toggleable="true" />
+				</sec:authorize>
+			</p:layoutUnit>
+			<p:layoutUnit id="mainLayout" position="center">
+				<p:growl id="msgs" showDetail="true" />
+				<p:messages id="messages" showDetail="true" autoUpdate="true" />
+				<p:fieldset id="addUser" legend="Ajouter un Utilisateur"
+					style="margin-bottom:20px">
+					<h:panelGrid columns="2" cellpadding="5">
+						<f:facet name="header">
+							<h:outputText value="Ajouter Un Utilisateur" />
+						</f:facet>
+						<h:outputText for="nom" value="Nom : *" />
+						<p:inputText id="nom" required="false" value="#{userMBean.nom}" />
+
+						<h:outputText for="prenom" value="Prénom : *" />
+						<p:inputText id="prenom" required="false"
+							value="#{userMBean.prenom}" />
+
+						<h:outputText for="login" value="Nom d'utilisateur : *" />
+						<p:inputText id="login" required="false" value="#{userMBean.login}" />
+
+						<h:outputLabel for="pwd1" value="Mot de Passe : *" />
+						<p:password id="pwd1" value="#{userMBean.password}" match="pwd2"
+							required="false" />
+
+						<h:outputLabel for="pwd2" value="Confirmer Mot de Passe: *" />
+						<p:password id="pwd2" value="#{userMBean.password}"
+							required="false" />
+
+						<h:outputText for="email" value="E-Mail : *" />
+						<p:inputText id="email" required="false" value="#{userMBean.email}" />
+
+						<p:outputLabel for="role" value="Role : * " />
+						<p:selectOneMenu id="role" value="#{userMBean.role}">
+							<f:selectItem itemLabel="Select One" itemValue="" />
+							<f:selectItems value="#{userMBean.allRoles}" />
+						</p:selectOneMenu>
+
+						<p:commandButton value="Cancel" id="cancel" disabled="false" />
+						<p:commandButton value="AddUser" id="add" update="msgs"
+							actionListener="#{userMBean.adduser()}"
+							styleClass="ui-priority-primary" />
+					</h:panelGrid>
+				</p:fieldset>
+			</p:layoutUnit>
+		</p:layout>
+	</h:form>
+</h:body>
+</html>
